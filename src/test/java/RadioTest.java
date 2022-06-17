@@ -5,13 +5,27 @@ public class RadioTest {
 
 
     @Test
-    public void shouldSwitchToNextStation() {
+    public void shouldSwitchToNextStation1() {
         Radio cond = new Radio();
         cond.currentStation = 1;
 
-        cond.nextStation();
+        cond.setNextStation();
 
         int expected = 2;
+        int actual = cond.currentStation;
+
+        Assertions.assertEquals(actual, expected);
+
+    }
+
+    @Test
+    public void shouldSwitchToNextStation2() {
+        Radio cond = new Radio();
+        cond.currentStation = 8;
+
+        cond.setNextStation();
+
+        int expected = 9;
         int actual = cond.currentStation;
 
         Assertions.assertEquals(actual, expected);
@@ -23,7 +37,7 @@ public class RadioTest {
         Radio cond = new Radio();
         cond.currentStation = 9;
 
-        cond.nextStation();
+        cond.setNextStation();
 
         int expected = 0;
         int actual = cond.currentStation;
@@ -35,11 +49,11 @@ public class RadioTest {
     @Test
     public void shouldChangeToThePreviousStation() {
         Radio cond = new Radio();
-        cond.currentStation = 2;
+        cond.currentStation = 1;
 
-        cond.prevStation();
+        cond.setPrevStation();
 
-        int expected = 1;
+        int expected = 0;
         int actual = cond.currentStation;
 
         Assertions.assertEquals(actual, expected);
@@ -51,7 +65,7 @@ public class RadioTest {
         Radio cond = new Radio();
         cond.currentStation = 0;
 
-        cond.prevStation();
+        cond.setPrevStation();
 
         int expected = 9;
         int actual = cond.currentStation;
@@ -103,7 +117,7 @@ public class RadioTest {
         Radio cond = new Radio();
         cond.currentVolume = 11;
 
-        cond.increaseVolume();
+        cond.setIncreaseVolume();
 
         int expected = 10;
         int actual = cond.currentVolume;
@@ -116,8 +130,7 @@ public class RadioTest {
         Radio cond = new Radio();
         cond.currentVolume = 0;
 
-        cond.increaseVolume();
-
+        cond.setIncreaseVolume();
         int expected = 1;
         int actual = cond.currentVolume;
 
@@ -129,7 +142,7 @@ public class RadioTest {
         Radio cond = new Radio();
         cond.currentVolume = 1;
 
-        cond.turnDownTheVolume();
+        cond.setTurnDownTheVolume();
 
         int expected = 0;
         int actual = cond.currentVolume;
@@ -142,7 +155,7 @@ public class RadioTest {
         Radio cond = new Radio();
         cond.currentVolume = -1;
 
-        cond.turnDownTheVolume();
+        cond.setTurnDownTheVolume();
 
         int expected = 0;
         int actual = cond.currentVolume;
