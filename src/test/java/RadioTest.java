@@ -21,6 +21,20 @@ public class RadioTest {
     @Test
     public void shouldSwitchToNextStation2() {
         Radio cond = new Radio();
+        cond.currentStation = 10;
+
+        cond.setNextStation();
+
+        int expected = 0;
+        int actual = cond.currentStation;
+
+        Assertions.assertEquals(actual, expected);
+
+    }
+
+    @Test
+    public void shouldSwitchToNextStation3() {
+        Radio cond = new Radio();
         cond.currentStation = 8;
 
         cond.setNextStation();
@@ -54,6 +68,20 @@ public class RadioTest {
         cond.setPrevStation();
 
         int expected = 0;
+        int actual = cond.currentStation;
+
+        Assertions.assertEquals(actual, expected);
+
+    }
+
+    @Test
+    public void shouldChangeToThePreviousStation1() {
+        Radio cond = new Radio();
+        cond.currentStation = 10;
+
+        cond.setPrevStation();
+
+        int expected = 10;
         int actual = cond.currentStation;
 
         Assertions.assertEquals(actual, expected);
@@ -158,6 +186,19 @@ public class RadioTest {
         cond.setTurnDownTheVolume();
 
         int expected = 0;
+        int actual = cond.currentVolume;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void moreBottomRange() {
+        Radio cond = new Radio();
+        cond.currentVolume = 12;
+
+        cond.setTurnDownTheVolume();
+
+        int expected = 12;
         int actual = cond.currentVolume;
 
         Assertions.assertEquals(expected, actual);
