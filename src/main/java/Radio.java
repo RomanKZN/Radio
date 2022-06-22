@@ -1,63 +1,93 @@
 public class Radio {
 
-    protected int currentStation;
-    protected int currentVolume;
+    protected int amountStation = 10;
+    protected int maxStation = 9;
+    protected int minStation = 0;
+
+    protected int currentStation = minStation;
+
+
+    protected int maxVolume = 100;
+    protected int minVolume = 0;
+    protected int currentVolume = minVolume;
+
 
     protected void setNextStation() {
-        if (currentStation <= 9) {
+        if (currentStation <= maxStation) {
             currentStation = currentStation + 1;
         }
-        if (currentStation >= 10) {
-            currentStation = 0;
+        if (currentStation >= amountStation) {
+            currentStation = minStation;
         }
     }
 
     protected void setPrevStation() {
-        if (currentStation <= 9) {
+        if (currentStation <= maxStation) {
             currentStation = currentStation - 1;
         }
-        if (currentStation <= -1) {
-            currentStation = 9;
+        if (currentStation < minStation) {
+            currentStation = maxStation;
         }
     }
 
-
     protected void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation < 0) {
+        if (newCurrentStation < minStation) {
             return;
         }
-        if (newCurrentStation > 9) {
+        if (newCurrentStation > maxStation) {
             return;
         }
         currentStation = newCurrentStation;
 
     }
 
+    public Radio() {
+
+    }
+
+    public int getAmountStation() {
+        return amountStation;
+    }
+
+    public int getCurrentStation() {
+        return currentStation;
+    }
+
+    public int getMaxStation() {
+        return maxStation;
+    }
+
+    public int getMinStation() {
+        return minStation;
+    }
 
     protected void setIncreaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < maxVolume) {
             currentVolume = currentVolume + 1;
+
         }
-        if (currentVolume >= 10) {
-            currentVolume = 10;
+        if (currentVolume <= minVolume) {
+            currentVolume =  minVolume;
 
         }
 
     }
 
     protected void setTurnDownTheVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < maxVolume) {
             currentVolume = currentVolume - 1;
         }
-        if (currentVolume <= -1) {
-            currentVolume = 0;
+        if (currentVolume <= minVolume) {
+            currentVolume = minVolume;
 
         }
-
     }
 
 
 }
+
+
+
 
 
 
