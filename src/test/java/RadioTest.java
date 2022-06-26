@@ -5,6 +5,19 @@ public class RadioTest {
 
     Radio cond = new Radio();
 
+
+    @Test
+    public void shouldShowTheNumberOfRadioStations () {
+        Radio cond = new Radio(21);
+
+        cond.setCurrentStation(20);
+
+
+        Assertions.assertEquals(20,cond.getCurrentStation());
+
+
+    }
+
     @Test
     public void shouldSwitchToNextStation1() {
         cond.currentStation = 1;
@@ -141,7 +154,7 @@ public class RadioTest {
 
     public void test (){
 
-      //  Radio cond = new Radio();
+
 
         Assertions.assertEquals(0,cond.getMinStation());
         Assertions.assertEquals(9,cond.getMaxStation());
@@ -226,20 +239,5 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-
-
 }
 
-
-//    @Test
-//    public void test() {
-//        cond.currentStation = 1;
-//
-//
-//        Assertions.assertEquals(0, cond.getMinStation());
-//        Assertions.assertEquals(9, cond.getMaxStation());
-//        Assertions.assertEquals(2, cond.getCurrentStation());
-//    }
-
-
-//    }
